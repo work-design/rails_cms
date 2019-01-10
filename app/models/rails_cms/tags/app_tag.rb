@@ -1,0 +1,3 @@
+class AppTag < Tag
+
+end

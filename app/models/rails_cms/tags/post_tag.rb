@@ -1,0 +1,3 @@
+class PostTag < Tag
+
+end

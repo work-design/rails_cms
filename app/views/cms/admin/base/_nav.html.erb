@@ -1,0 +1,28 @@
+<div class="ui vertical fluid icon menu">
+  <div class="header center link item" id="close_side">
+    <i class="content icon"></i>
+  </div>
+  <div class="item ui dropdown">
+    <a class="<%= active_helper(controllers: ['posts', 'posters', 'topics', 'videos'], active_class: 'title active', item_class: 'title') %>">
+      <i class="file alternate icon"></i>
+      <span>资讯</span>
+    </a>
+    <div class="<%= active_helper(controllers: ['posts', 'posters', 'topics', 'videos'], active_class: 'menu content active', item_class: 'menu content') %>">
+      <%= link_to '海报管理', admin_posters_path, class: active_helper(controllers: 'posters') %>
+      <%= link_to '资讯管理', admin_posts_path, class: active_helper(controllers: 'posts') %>
+      <%= link_to '帖子管理', admin_topics_path, class: active_helper(controllers: 'topics') %>
+      <%= link_to '视频管理', admin_videos_path, class: active_helper(controllers: 'videos') %>
+    </div>
+  </div>
+  <div class="item ui dropdown">
+    <a class="<%= active_helper(controllers: ['tags', 'taxons'], active_class: 'title active', item_class: 'title') %>">
+      <i class="star icon"></i>
+      <span>标签/分类</span>
+    </a>
+    <div class="<%= active_helper(controllers: ['tags', 'taxons'], active_class: 'menu content active', item_class: 'menu content') %>">
+      <%= link_to '标签管理', admin_tags_path, class: active_helper(controllers: 'tags') %>
+      <%= link_to '分类管理', admin_taxons_path, class: active_helper(controllers: 'taxons') %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,3 @@
+class UGCPost < Post
+
+end

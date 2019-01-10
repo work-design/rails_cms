@@ -1,0 +1,51 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">Admin Videos</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to 'New Admin Video', new_admin_video_path, class: 'ui teal button' %>
+    </div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= Video.human_attribute_name(:id) %></th>
+      <th><%= Video.human_attribute_name(:title) %></th>
+      <th><%= Video.human_attribute_name(:cover) %></th>
+      <th><%= Video.human_attribute_name(:media) %></th>
+      <th><%= Video.human_attribute_name(:state) %></th>
+      <th><%= Video.human_attribute_name(:author_id) %></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @videos.each do |video| %>
+    <tr>
+      <td><%= video.id %></td>
+      <td><%= video.title %></td>
+      <td><%= image_tag video.cover, class: 'ui small image' if video.cover.attached? %></td>
+      <td><%= link_to '预览', rails_ext_video_path(video.media&.id), target: '_blank' %></td>
+      <td><%= video.state %></td>
+      <td><%= video.author_id %></td>
+      <td class="ui labels">
+        <%= link_to admin_video_path(video), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
+          <i class="location arrow icon"></i>
+        <% end %>
+        <%= link_to edit_admin_video_path(video), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+          <i class="pencil alternate icon"></i>
+        <% end %>
+        <%= link_to admin_video_path(video), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @videos %>

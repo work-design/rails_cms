@@ -1,0 +1,8 @@
+<%= form_with model: @topic, local: true do |f| %>
+  <%= render 'shared/error_messages', target: @topic %>
+  <%= f.text_field :title %>
+  <%= f.text_field :author %>
+  <%= f.text_field :tag_strings %>
+  <%= f.text_field :body %>
+  <%= f.submit %>
+<% end %>

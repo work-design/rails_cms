@@ -1,0 +1,70 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">Admin Posters</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to 'New Admin Poster', new_admin_poster_path, class: 'ui teal button' %>
+    </div>
+  </div>
+</div>
+
+<div class="ui attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= Poster.human_attribute_name(:id) %></th>
+      <th><%= Poster.human_attribute_name(:image) %></th>
+      <th><%= Poster.human_attribute_name(:title) %></th>
+      <th>
+        <p><%= Poster.human_attribute_name(:linking_type) %></p>
+        <p><%= Poster.human_attribute_name(:linking_id) %></p>
+      </th>
+      <th><%= Poster.human_attribute_name(:link) %></th>
+      <th><%= Poster.human_attribute_name(:platform) %></th>
+      <th><%= Poster.human_attribute_name(:published) %></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @posters.each do |poster| %>
+    <tr>
+      <td><%= poster.id %></td>
+      <td><%= image_tag poster.image, class: 'ui small image' %></td>
+      <td><%= poster.title %></td>
+      <td>
+        <p><%= poster.linking_type %></p>
+        <p><%= poster.linking_id %></p>
+      </td>
+      <td><%= poster.link %></td>
+      <td><%= poster.platform_i18n %></td>
+      <td>
+        <span class="ui toggle checkbox">
+          <%= check_box_tag :published, nil, poster.published, id: false,
+                            data: {
+                              url: admin_poster_path(poster),
+                              method: :patch,
+                              remote: true,
+                              params: "[poster]published=#{!poster.published}"
+                            }
+          %>
+        </span>
+      </td>
+      <td class="ui labels">
+        <%= link_to admin_poster_path(poster), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
+          <i class="location arrow icon"></i>
+        <% end %>
+        <%= link_to edit_admin_poster_path(poster), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+          <i class="pencil alternate icon"></i>
+        <% end %>
+        <%= link_to admin_poster_path(poster), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @posters %>
