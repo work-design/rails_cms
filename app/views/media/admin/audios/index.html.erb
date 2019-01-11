@@ -1,0 +1,47 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">Admin Audios</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to 'New Admin Audio', new_admin_audio_path, class: 'ui teal button' %>
+    </div>
+  </div>
+</div>
+
+<%= render 'filter' %>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= Audio.human_attribute_name(:id) %></th>
+      <th><%= Audio.human_attribute_name(:title) %></th>
+      <th><%= Audio.human_attribute_name(:state) %></th>
+      <th><%= Audio.human_attribute_name(:author) %></th>
+      <th>预览</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @audios.each do |audio| %>
+    <tr>
+      <td><%= audio.id %></td>
+      <td><%= audio.title %></td>
+      <td><%= audio.state %></td>
+      <td><%= audio.author.name if audio.author %></td>
+      <td><%= link_to '预览', rails_ext_video_path(audio.media.id), target: '_blank' if audio.media.attached? %></td>
+      <td class="ui labels">
+        <%= link_to admin_audio_path(audio), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
+          <i class="location arrow icon"></i>
+        <% end %>
+        <%= link_to edit_admin_audio_path(audio), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+          <i class="pencil alternate icon"></i>
+        <% end %>
+        <%= link_to admin_audio_path(audio), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+          <i class="times icon"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @audios %>
