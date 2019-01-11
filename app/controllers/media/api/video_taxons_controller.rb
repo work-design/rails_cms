@@ -1,4 +1,4 @@
-class Cms::Api::VideoTaxonsController < Cms::Api::BaseController
+class Media::Api::VideoTaxonsController < Media::Api::BaseController
   before_action :set_video_taxon, only: [:show, :update, :destroy]
 
   def index

@@ -1,4 +1,4 @@
-class Cms::BaseController < ApplicationController
+class Media::BaseController < ApplicationController
 
 
 end

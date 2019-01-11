@@ -1,12 +1,4 @@
-class Media::Admin::BaseController < AdminController
-  include RailsRoleController
-  before_action :debug_csp
+class Media::Admin::BaseController < RailsMedia.config.admin_class.constantize
 
-  def current_manager
-    current_user&.manager
-  end
-
-  def debug_csp
-  end
 
 end

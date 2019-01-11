@@ -1,4 +1,4 @@
-class Cms::Api::VideosController < Cms::Api::BaseController
+class Media::Api::VideosController < Media::Api::BaseController
   before_action :set_video, only: [:show, :viewed, :update, :destroy]
 
   def index

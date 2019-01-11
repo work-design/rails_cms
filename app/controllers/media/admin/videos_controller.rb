@@ -1,4 +1,4 @@
-class Cms::Admin::VideosController < Cms::Admin::BaseController
+class Media::Admin::VideosController < Media::Admin::BaseController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   def index

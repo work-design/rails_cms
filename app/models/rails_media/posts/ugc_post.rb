@@ -1,3 +1,0 @@
-class UGCPost < Post
-
-end

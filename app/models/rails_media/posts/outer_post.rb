@@ -1,3 +1,0 @@
-class OuterPost < Post
-
-end

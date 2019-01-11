@@ -1,4 +1,4 @@
-class Cms::Api::VideoTagsController < Cms::Api::BaseController
+class Media::Api::VideoTagsController < Media::Api::BaseController
   before_action :set_video_tag, only: [:show, :update, :destroy]
 
   def index

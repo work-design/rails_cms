@@ -1,4 +1,4 @@
-class Cms::Api::BaseController < ApiController
+class Media::Api::BaseController < RailsMedia.config.api_class.constantize
 
 
 
