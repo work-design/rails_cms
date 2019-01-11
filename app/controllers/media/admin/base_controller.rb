@@ -1,4 +1,4 @@
-class Cms::Admin::BaseController < AdminController
+class Media::Admin::BaseController < AdminController
   include RailsRoleController
   before_action :debug_csp
 

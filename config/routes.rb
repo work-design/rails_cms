@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     resources :topics
     resources :videos
     resources :tags
-    resources :taxons
   end
 
 end
