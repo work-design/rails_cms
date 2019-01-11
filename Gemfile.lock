@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_cms (0.1.0)
+    rails_media (0.1.0)
       rails_com (~> 1.2)
 
 GEM
@@ -136,7 +136,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rails_cms!
+  rails_media!
   sqlite3
 
 BUNDLED WITH
