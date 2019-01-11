@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  scope module: 'cms' do
+  scope module: 'media' do
     resources :posts
     controller :posts do
       get '/p/:code' => :code, as: :p
     end
   end
 
-  scope :api, module: 'cms/api', as: :api do
+  scope :api, module: 'media/api', as: :api do
     resources :videos do
       patch :viewed, on: :member
     end
@@ -21,12 +21,11 @@ Rails.application.routes.draw do
     resources :posters, only: [:index, :show]
   end
 
-  scope :admin, module: 'cms/admin', as: 'admin' do
+  scope :admin, module: 'media/admin', as: 'admin' do
     resources :posts
     resources :posters
     resources :topics
     resources :videos
-    resources :tags
   end
 
 end

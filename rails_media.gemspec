@@ -1,9 +1,9 @@
 $:.push File.expand_path('lib', __dir__)
-require 'rails_cms/version'
+require 'rails_media/version'
 
 Gem::Specification.new do |s|
-  s.name = 'rails_cms'
-  s.version = RailsCms::VERSION
+  s.name = 'rails_media'
+  s.version = RailsMedia::VERSION
   s.authors = ['qinmingyuan']
   s.email = ['mingyuan0715@foxmail.com']
   s.homepage = ''

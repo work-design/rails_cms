@@ -10,4 +10,5 @@ class Poster < ApplicationRecord
   def image_url
     image.service_url if image.attachment.present?
   end
+
 end

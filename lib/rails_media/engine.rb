@@ -1,4 +1,4 @@
-module RailsCms
+module RailsMedia
   class Engine < ::Rails::Engine
 
     config.eager_load_paths += Dir[
