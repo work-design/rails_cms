@@ -11,19 +11,12 @@ class Media::Api::VideosController < Media::Api::BaseController
   end
 
   def show
-    if current_user
-      @star_ids = current_user.stars.where(starred_type: 'Video', starred_id: @video.id).pluck(:starred_id)
-    end
   end
 
   def viewed
     p = @video.progressions.find_or_initialize_by(user_id: current_user.id)
     p.state = 'done'
     p.save
-
-    if current_user
-      @star_ids = current_user.stars.where(starred_type: 'Video', starred_id: @video.id).pluck(:starred_id)
-    end
 
     render 'show'
   end
@@ -42,9 +35,6 @@ class Media::Api::VideosController < Media::Api::BaseController
   end
 
   def update
-    if current_user
-      @star_ids = current_user.stars.where(starred_type: 'Video', starred_id: @video.id).pluck(:starred_id)
-    end
     if @video.update(video_params)
       render 'show'
     else
@@ -59,6 +49,9 @@ class Media::Api::VideosController < Media::Api::BaseController
   private
   def set_video
     @video = Video.find(params[:id])
+    if current_user
+      @star_ids = current_user.stars.where(starred_type: 'Video', starred_id: @video.id).pluck(:starred_id)
+    end
   end
 
   def video_params
