@@ -3,14 +3,12 @@
     <i class="content icon"></i>
   </div>
   <div class="item ui dropdown">
-    <a class="<%= active_helper(controllers: ['posts', 'posters', 'topics', 'videos'], active_class: 'title active', item_class: 'title') %>">
+    <a class="<%= active_helper(controllers: ['audios', 'videos'], active_class: 'title active', item_class: 'title') %>">
       <i class="file alternate icon"></i>
       <span>资讯</span>
     </a>
-    <div class="<%= active_helper(controllers: ['posts', 'posters', 'topics', 'videos'], active_class: 'menu content active', item_class: 'menu content') %>">
-      <%= link_to '海报管理', admin_posters_path, class: active_helper(controllers: 'posters') %>
-      <%= link_to '资讯管理', admin_posts_path, class: active_helper(controllers: 'posts') %>
-      <%= link_to '帖子管理', admin_topics_path, class: active_helper(controllers: 'topics') %>
+    <div class="<%= active_helper(controllers: ['audios', 'videos'], active_class: 'menu content active', item_class: 'menu content') %>">
+      <%= link_to '音频管理', admin_audios_path, class: active_helper(controllers: 'audios') %>
       <%= link_to '视频管理', admin_videos_path, class: active_helper(controllers: 'videos') %>
     </div>
   </div>
