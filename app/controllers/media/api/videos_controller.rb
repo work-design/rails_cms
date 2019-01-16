@@ -13,6 +13,11 @@ class Media::Api::VideosController < Media::Api::BaseController
   def show
   end
 
+  def videos
+    @videos = user.videos
+    render json: { videos: @videos }
+  end
+
   def viewed
     p = @video.progressions.find_or_initialize_by(user_id: current_user.id)
     p.state = 'done'
