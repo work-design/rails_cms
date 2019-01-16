@@ -4,5 +4,5 @@ json.tags video.tags do |tag|
 end
 json.comments video.comments do |comment|
   json.extract! comment, :id, :title, :content, :state, :score, :liked_count
-  json.commenter comment.commenter, :id, :name, :avatar_url
+  json.commenter comment.user, :id, :name, :avatar_url
 end
