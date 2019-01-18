@@ -2,7 +2,7 @@ class Media::Api::VideosController < Media::Api::BaseController
   before_action :set_video, only: [:show, :viewed, :update, :destroy]
 
   def index
-    q_params = params.permit(:video_taxon_id)
+    q_params = params.permit(:video_taxon_id, :user_id, 'title-like')
     @videos = Video.default_where(q_params).order(id: :desc).page(params[:page]).per(params[:per])
 
     if current_user
