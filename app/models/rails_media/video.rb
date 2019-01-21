@@ -1,5 +1,6 @@
 class Video < ApplicationRecord
   include RailsGrowthEntity
+  include RailsInteractLike
   attribute :share_count, :integer, default: 0
 
   belongs_to :author, class_name: 'User', optional: true
