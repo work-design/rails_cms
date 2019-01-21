@@ -1,5 +1,6 @@
 class Media::Api::VideosController < Media::Api::BaseController
   before_action :set_video, only: [:show, :viewed, :update, :destroy]
+  before_action :require_login, only: [:create, :update, :destroy]
 
   def index
     q_params = params.permit(:video_taxon_id, :author_id, 'title-like')
@@ -66,6 +67,6 @@ class Media::Api::VideosController < Media::Api::BaseController
       :cover,
       :video_taxon_id,
       tag_ids: []
-    ).merge(author_id: current_user&.id)
+    ).merge(author_id: current_user.id)
   end
 end
