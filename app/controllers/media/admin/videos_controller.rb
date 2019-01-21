@@ -44,7 +44,7 @@ class Media::Admin::VideosController < Media::Admin::BaseController
   end
 
   def video_params
-    params.fetch(:video, {}).permit(
+    q = params.fetch(:video, {}).permit(
       :title,
       :state,
       :media,
@@ -52,6 +52,8 @@ class Media::Admin::VideosController < Media::Admin::BaseController
       :author_id,
       :video_taxon_id,
     )
+    q.merge!(author_id: current_user.id) if q[:author_id].blank?
+    q
   end
 
 end
