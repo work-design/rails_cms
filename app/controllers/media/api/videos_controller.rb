@@ -66,6 +66,6 @@ class Media::Api::VideosController < Media::Api::BaseController
       :cover,
       :video_taxon_id,
       tag_ids: []
-    ).merge(author_id: current_user.id)
+    ).merge(author_id: current_user&.id)
   end
 end
