@@ -1,0 +1,7 @@
+zh:
+  activerecord:
+    notify:
+      video:
+        default:
+          title: 你的视频已审核：%{state_i18n}
+          body: 你的视频已审核：%{state_i18n}

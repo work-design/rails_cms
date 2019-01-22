@@ -30,8 +30,17 @@
       <td><%= video.title %></td>
       <td><%= image_tag video.cover, class: 'ui small image' if video.cover.attached? %></td>
       <td><%= link_to '预览', rails_ext_video_path(video.media&.id), target: '_blank' %></td>
-      <td><%= video.state %></td>
-      <td><%= video.author_id %></td>
+      <td class="ui labels">
+        <label class="ui label"><%= video.state_i18n %></label>
+        <div class="ui mini buttons">
+          <%= link_to t('.approve'), new_check_path('Video', video.id, state: Video.states[:verified]), remote: true, class: 'ui positive button' %>
+          <div class="or"></div>
+          <%= link_to t('.reject'), new_check_path('Video', video.id, state: Video.states[:rejected]), remote: true, class: 'ui negative button' %>
+        </div>
+      </td>
+      <td>
+        <%= link_to video.author.name, admin_user_path(video.author_id) %>
+      </td>
       <td class="ui labels">
         <%= link_to admin_video_path(video), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
           <i class="location arrow icon"></i>

@@ -1,8 +1,12 @@
 class Video < ApplicationRecord
+  acts_as_notify :default, methods: [:state_i18n]
+
+  include CheckMachine
   include RailsGrowthEntity
   include RailsInteractLike
   attribute :share_count, :integer, default: 0
   attribute :liked_count, :integer, default: 0
+  attribute :state, :string, default: 'draft'
 
   belongs_to :author, class_name: 'User', optional: true
   belongs_to :video_taxon, optional: true
@@ -14,6 +18,25 @@ class Video < ApplicationRecord
 
   has_one_attached :media
   has_one_attached :cover
+
+  enum state: {
+    draft: 'draft',
+    verified: 'verified',
+    rejected: 'rejected'
+  }
+
+  def do_trigger(params = {})
+    self.trigger_to state: params[:state]
+
+    self.class.transaction do
+      self.save!
+      to_notification(
+        receiver: self.author,
+        link: url_helpers.admin_videos_url(id: self.id),
+        verbose: true
+      ) if self.author
+    end
+  end
 
   def viewed?(user_id)
     progressions.done.exists?(user_id: user_id)
