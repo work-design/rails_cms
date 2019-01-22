@@ -27,12 +27,12 @@ class Video < ApplicationRecord
     cover.service_url if cover.attachment.present?
   end
 
-  def pre_videos
-    self.class.default_where('id-lt': self.id).order(id: :desc)
+  def pre_videos(per = 10)
+    self.class.default_where('id-lt': self.id).order(id: :desc).limit(per)
   end
 
-  def next_videos
-    self.class.default_where('id-gt': self.id).order(id: :asc)
+  def next_videos(per = 10)
+    self.class.default_where('id-gt': self.id).order(id: :asc).limit(per)
   end
 
   def share_url
