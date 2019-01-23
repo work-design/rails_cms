@@ -25,4 +25,5 @@ if current_user
   json.starred @star_ids.include?(video.id)
   json.viewed video.viewed?(current_user.id)
   json.liked video.liked?(current_user.id)
+  json.rewardable_codes video.rewardable_codes(current_user.id)
 end
