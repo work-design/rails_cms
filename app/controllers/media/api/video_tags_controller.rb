@@ -1,5 +1,5 @@
 class Media::Api::VideoTagsController < Media::Api::BaseController
-  before_action :set_video_tag, only: [:show, :update, :destroy]
+  before_action :set_video_tag, only: [:show, :update]
 
   def index
     @video_tags = VideoTag.page(params[:page]).per(params[:per])
