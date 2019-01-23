@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   scope :api, module: 'media/api', as: :api do
     resources :videos do
+      get :list, on: :collection
       patch :viewed, on: :member
     end
     resources :video_taxons

@@ -11,6 +11,31 @@ class Media::Api::VideosController < Media::Api::BaseController
     end
   end
 
+  def list
+    ids = []
+    if params[:id]
+      set_video
+      ids << params[:id]
+    end
+    if @video
+      if params[:scope].blank? || params[:scope] == 'pre'
+        @pre_videos = @video.pre_videos(params[:per])
+        ids += @pre_videos.pluck(:id)
+      end
+      if params[:scope].blank? || params[:scope] == 'next'
+        @next_videos = @video.next_videos(params[:per])
+        ids += @next_videos.pluck(:id)
+      end
+    else
+      q_params = params.permit(:video_taxon_id, :author_id, 'title-like')
+      @next_videos = Video.default_where(q_params).order(id: :desc).page(params[:page]).per(params[:per])
+      ids += @next_videos.pluck(:id)
+    end
+    if current_user
+      @star_ids = current_user.stars.where(starred_type: 'Video', starred_id: ids).pluck(:starred_id)
+    end
+  end
+
   def show
   end
 
