@@ -28,7 +28,7 @@ class Media::Api::VideosController < Media::Api::BaseController
       end
     else
       q_params = params.permit(:video_taxon_id, :author_id, 'title-like')
-      @next_videos = Video.default_where(q_params).order(id: :desc).page(params[:page]).per(params[:per])
+      @next_videos = Video.default_where(q_params).order(id: :asc).page(params[:page]).per(params[:per])
       ids += @next_videos.pluck(:id)
     end
     if current_user
