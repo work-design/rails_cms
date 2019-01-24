@@ -1,6 +1,6 @@
 class Progression < ApplicationRecord
   belongs_to :user
-  belongs_to :progressive, polymorphic: true
+  belongs_to :progressive, polymorphic: true, counter_cache: :view_count
 
   enum state: {
     init: 'init',
