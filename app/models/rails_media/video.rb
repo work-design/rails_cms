@@ -4,14 +4,15 @@ class Video < ApplicationRecord
   include CheckMachine
   include RailsGrowthEntity
   include RailsInteractLike
+  include RailsInteractComment
   attribute :share_count, :integer, default: 0
   attribute :view_count, :integer, default: 0
   attribute :liked_count, :integer, default: 0
+  attribute :comments_count, :integer, default: 0
   attribute :state, :string, default: 'draft'
 
   belongs_to :author, class_name: 'User', optional: true
   belongs_to :video_taxon, optional: true
-  has_many :comments, as: :commentable
   has_many :taggeds, as: :tagging, dependent: :delete_all
   has_many :tags, through: :taggeds
   has_many :attitudes, as: :attitudinal, dependent: :delete_all
