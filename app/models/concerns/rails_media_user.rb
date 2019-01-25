@@ -6,7 +6,7 @@ module RailsMediaUser
   end
 
   def videos_count
-    if super
+    if defined?(super) && super
       super
     else
       videos.count
