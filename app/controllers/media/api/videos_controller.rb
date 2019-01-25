@@ -31,7 +31,11 @@ class Media::Api::VideosController < Media::Api::BaseController
       @next_videos = Video.default_where(q_params).order(id: :asc).page(params[:page]).per(params[:per])
       ids += @next_videos.pluck(:id)
     end
-    if current_user
+    if current_user && params[:starred]
+      @star_ids = current_user.stars.where(starred_type: 'Video').pluck(:starred_id)
+      @next_videos = @next_videos.where(id: @star_ids)
+      @pre_videos = @pre_videos.where(id: @star_ids) if @pre_videos
+    elsif current_user
       @star_ids = current_user.stars.where(starred_type: 'Video', starred_id: ids).pluck(:starred_id)
     end
   end
