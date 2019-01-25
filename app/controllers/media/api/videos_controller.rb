@@ -42,7 +42,7 @@ class Media::Api::VideosController < Media::Api::BaseController
 
   def starred
     @star_ids = current_user.stars.where(starred_type: 'Video').pluck(:starred_id)
-    @videos = Video.where(id: @star_ids)
+    @videos = Video.where(id: @star_ids).page(params[:page])
     render :index
   end
 
