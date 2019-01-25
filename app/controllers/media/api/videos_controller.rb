@@ -36,6 +36,12 @@ class Media::Api::VideosController < Media::Api::BaseController
     end
   end
 
+  def starred
+    @star_ids = current_user.stars.where(starred_type: 'Video').pluck(:starred_id)
+    @videos = Video.where(id: @star_ids)
+    render :index
+  end
+
   def show
   end
 
