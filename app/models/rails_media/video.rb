@@ -1,4 +1,5 @@
 class Video < ApplicationRecord
+  WM_PREFIX = '0wm'
   acts_as_notify :default, methods: [:state_i18n]
 
   include CheckMachine
@@ -48,6 +49,10 @@ class Video < ApplicationRecord
     media.service_url if media.attachment.present?
   end
 
+  def media_wm_url
+    
+  end
+
   def cover_url
     cover.service_url if cover.attachment.present?
   end
@@ -62,6 +67,10 @@ class Video < ApplicationRecord
 
   def share_url
     'http://dappore.store'
+  end
+
+  def water_mark
+    QiniuHelper.av_watermark(self.media.key, RailsMedia.config.water_mark_url, gravity: 'North', prefix: WM_PREFIX)
   end
 
 end
