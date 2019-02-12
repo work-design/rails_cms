@@ -9,6 +9,7 @@ class RailsMediaInit < ActiveRecord::Migration[5.2]
       t.integer :liked_count
       t.integer :view_count
       t.integer :comments_count
+      t.string :water_mark_job
       t.timestamps
     end
 

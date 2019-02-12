@@ -39,7 +39,7 @@
         </div>
       </td>
       <td>
-        <%= link_to video.author.name, admin_user_path(video.author_id) %>
+        <%= link_to video.author.name, admin_user_path(video.author_id) if video.author %>
       </td>
       <td class="ui labels">
         <%= link_to admin_video_path(video), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>

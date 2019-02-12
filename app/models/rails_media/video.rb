@@ -22,6 +22,8 @@ class Video < ApplicationRecord
   has_one_attached :media
   has_one_attached :cover
 
+  after_create_commit :doing_water_mark
+
   enum state: {
     draft: 'draft',
     verified: 'verified',
@@ -50,7 +52,9 @@ class Video < ApplicationRecord
   end
 
   def media_wm_url
-    
+    if water_mark_job
+      QiniuHelper.download_url(WM_PREFIX + self.media_blob&.key)
+    end
   end
 
   def cover_url
@@ -70,7 +74,19 @@ class Video < ApplicationRecord
   end
 
   def water_mark
-    QiniuHelper.av_watermark(self.media.key, RailsMedia.config.water_mark_url, gravity: 'North', prefix: WM_PREFIX)
+    if water_mark_job.blank?
+      r = QiniuHelper.av_watermark(self.media.key, RailsMedia.config.water_mark_url, gravity: 'North', prefix: WM_PREFIX)
+      self.update(water_mark_job: r['persistentId'])
+      r
+    else
+      r = QiniuHelper.prefop(water_mark_job)
+      self.update(water_mark_job: r['desc'])
+      r
+    end
+  end
+
+  def doing_water_mark
+    VideoWmJob.perform_later(self)
   end
 
 end
