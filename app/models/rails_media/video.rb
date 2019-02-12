@@ -54,6 +54,8 @@ class Video < ApplicationRecord
   def media_wm_url
     if water_mark_job
       QiniuHelper.download_url(WM_PREFIX + self.media_blob&.key)
+    else
+      media_url
     end
   end
 
