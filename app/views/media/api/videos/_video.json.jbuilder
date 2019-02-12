@@ -17,6 +17,7 @@ json.media do
   json.duration video.media.blob.duration
   json.duration_str video.media.blob.duration_str
   json.url video.media.service_url
+  json.wm_url video.media_wm_url
 end
 if video.video_taxon
   json.video_taxon video.video_taxon, :id, :name
