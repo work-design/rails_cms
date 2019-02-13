@@ -23,6 +23,7 @@ class Video < ApplicationRecord
   has_one_attached :cover
 
   after_create_commit :doing_water_mark
+  after_create_commit :doing_video_tag
 
   enum state: {
     draft: 'draft',
@@ -53,7 +54,7 @@ class Video < ApplicationRecord
 
   def media_wm_url
     if water_mark_job
-      QiniuHelper.download_url(WM_PREFIX + self.media_blob&.key)
+      QiniuHelper.download_url([WM_PREFIX + self.media_blob&.key].join('_'))
     else
       media_url
     end
@@ -89,6 +90,11 @@ class Video < ApplicationRecord
 
   def doing_water_mark
     VideoWmJob.perform_later(self)
+  end
+
+  def doing_video_tag
+    reg = /#[^#]+(#|\s)/
+    self.title
   end
 
 end
