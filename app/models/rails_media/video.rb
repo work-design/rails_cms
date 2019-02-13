@@ -93,8 +93,11 @@ class Video < ApplicationRecord
   end
 
   def doing_video_tag
-    reg = /#[^#]+(#|\s)/
-    self.title
+    reg = /#[^#]+[#|\s]/
+    r = self.title.scan(reg)
+    r.each do |tag|
+      tag.gsub(/[#|\s]/, '')
+    end
   end
 
 end
