@@ -95,9 +95,13 @@ class Video < ApplicationRecord
   def doing_video_tag
     reg = /#[^#]+[#|\s]/
     r = self.title.scan(reg)
-    r.each do |tag|
-      tag.gsub(/[#|\s]/, '')
+    tag_strs = r.map do |tag|
+      tag.gsub(/(^#|#$)/, '')
     end
+    tag_ids = tag_strs.map do |tag|
+      VideoTag.find_or_create_by(name: tag).id
+    end
+    self.tag_ids = tag_ids
   end
 
 end
