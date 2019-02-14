@@ -1,6 +1,6 @@
 class Media::Api::VideosController < Media::Api::BaseController
   before_action :set_video, only: [:show, :viewed, :update, :destroy]
-  before_action :require_login, only: [:viewed, :create, :update, :destroy]
+  before_action :require_login, only: [:viewed, :starred, :create, :update, :destroy]
 
   def index
     q_params = params.permit(:video_taxon_id, :author_id, 'title-like')
