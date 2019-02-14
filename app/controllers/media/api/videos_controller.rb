@@ -4,7 +4,11 @@ class Media::Api::VideosController < Media::Api::BaseController
 
   def index
     q_params = params.permit(:video_taxon_id, :author_id, 'title-like')
-    @videos = Video.verified.default_where(q_params).order(id: :desc).page(params[:page]).per(params[:per])
+    unless q_params[:author_id]
+      q_params.merge! state: 'verified'
+    end
+
+    @videos = Video.default_where(q_params).order(id: :desc).page(params[:page]).per(params[:per])
 
     if current_user
       @star_ids = current_user.stars.where(starred_type: 'Video', starred_id: @videos.pluck(:id)).pluck(:starred_id)
@@ -17,18 +21,23 @@ class Media::Api::VideosController < Media::Api::BaseController
       set_video
       ids << params[:id]
     end
+
+    q_params = params.permit(:video_taxon_id, :author_id, 'title-like', :per)
+    unless q_params[:author_id]
+      q_params.merge! state: 'verified'
+    end
+
     if @video
       if params[:scope].blank? || params[:scope] == 'pre'
-        @pre_videos = @video.pre_videos(params[:per])
+        @pre_videos = @video.pre_videos(q_params)
         ids += @pre_videos.pluck(:id)
       end
       if params[:scope].blank? || params[:scope] == 'next'
-        @next_videos = @video.next_videos(params[:per])
+        @next_videos = @video.next_videos(q_params)
         ids += @next_videos.pluck(:id)
       end
     else
-      q_params = params.permit(:video_taxon_id, :author_id, 'title-like')
-      @next_videos = Video.verified.default_where(q_params).order(id: :desc).page(params[:page]).per(params[:per])
+      @next_videos = Video.default_where(q_params).order(id: :desc).page(params[:page]).per(params[:per])
       ids += @next_videos.pluck(:id)
     end
     if current_user && params[:starred]

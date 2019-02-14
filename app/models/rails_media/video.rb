@@ -64,12 +64,18 @@ class Video < ApplicationRecord
     cover.service_url if cover.attachment.present?
   end
 
-  def pre_videos(per = 10)
-    self.class.default_where('id-gt': self.id).order(id: :asc).limit(per)
+  def pre_videos(params = {})
+    per = params.delete(:per) || 10
+    q = { 'id-gt': self.id }.merge params
+
+    self.class.default_where(q).order(id: :asc).limit(per)
   end
 
-  def next_videos(per = 10)
-    self.class.default_where('id-lt': self.id).order(id: :desc).limit(per)
+  def next_videos(params = {})
+    per = params.delete(:per) || 10
+    q = { 'id-lt': self.id }.merge params
+
+    self.class.default_where(q).order(id: :desc).limit(per)
   end
 
   def share_url
