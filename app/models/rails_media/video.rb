@@ -49,7 +49,7 @@ class Video < ApplicationRecord
   end
 
   def media_url
-    media.service_url if media.attachment.present?
+    media.blob.service_url if media.attachment.present?
   end
 
   def media_wm_url
@@ -61,7 +61,7 @@ class Video < ApplicationRecord
   end
 
   def cover_url
-    cover.service_url if cover.attachment.present?
+    cover.blob.service_url if cover.attachment.present?
   end
 
   def pre_videos(params = {})
