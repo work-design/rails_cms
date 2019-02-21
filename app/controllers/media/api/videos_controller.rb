@@ -4,7 +4,7 @@ class Media::Api::VideosController < Media::Api::BaseController
 
   def index
     q_params = params.permit(:video_taxon_id, :author_id, 'title-like', 'created_at-desc', 'view_count-desc')
-    unless q_params[:author_id]
+    unless q_params[:author_id].to_i == current_user&.id
       q_params.merge! state: 'verified'
     end
 
@@ -26,7 +26,7 @@ class Media::Api::VideosController < Media::Api::BaseController
     end
 
     q_params = params.permit(:video_taxon_id, :author_id, 'title-like', 'created_at-desc', 'view_count-desc', :per)
-    unless q_params[:author_id]
+    unless q_params[:author_id].to_i == current_user&.id
       q_params.merge! state: 'verified'
     end
 
