@@ -2,12 +2,12 @@ json.extract! video,
               :id,
               :title,
               :cover_url,
-              :share_url,
               :view_count,
               :liked_count,
               :share_count,
               :created_at,
               :rewardable
+json.share_url video.share_url(current_user)
 json.comments_count video.comments.count
 if video.author
   json.author video.author, :id, :name, :avatar_url

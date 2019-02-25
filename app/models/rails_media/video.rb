@@ -78,8 +78,14 @@ class Video < ApplicationRecord
     self.class.default_where(q).order(id: :desc).limit(per)
   end
 
-  def share_url
-    'http://dappore.store'
+  def share_url(current_user)
+    url_helpers = Rails.application.routes.url_helpers
+
+    if current_user
+      url_helpers.video_url(self.id, user_id: current_user.id)
+    else
+      url_helpers.video_url(self.id)
+    end
   end
 
   def water_mark

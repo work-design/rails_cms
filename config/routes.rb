@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   scope module: 'media' do
+    resources :videos, on: [:show]
   end
 
   scope :api, module: 'media/api', as: :api do
