@@ -8,7 +8,11 @@ class Media::Api::VideosController < Media::Api::BaseController
       q_params.merge! state: 'verified'
     end
 
-    @videos = Video.default_where(q_params).order(id: :desc).page(params[:page]).per(params[:per])
+    @videos = Video.with_attached_media.with_attached_cover.includes(:progressions, :comments, :author, :video_taxon).default_where(q_params).order(id: :desc).page(params[:page]).per(params[:per])
+
+    if params[:subscribe].present?
+      @videos = @videos.where("author_id in (?)", current_user.follow_users.pluck(:id))
+    end
 
     if current_user && params[:starred]
       @star_ids = current_user.stars.where(starred_type: 'Video').pluck(:starred_id)
