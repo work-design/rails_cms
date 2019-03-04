@@ -3,5 +3,5 @@ en:
     notify:
       video:
         default:
-          title: Your video has been verified %{state_i18n}
-          body: Your video has been verified %{state_i18n}
+          title: '%{title}'
+          body: Your video has been %{state_i18n}
