@@ -2,7 +2,9 @@ class Media::Admin::VideosController < Media::Admin::BaseController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   def index
-    @videos = Video.order(id: :desc).page(params[:page])
+    q_params = {}.with_indifferent_access
+    q_params.merge! params.permit(:author_id)
+    @videos = Video.default_where(q_params).order(id: :desc).page(params[:page])
   end
 
   def new
