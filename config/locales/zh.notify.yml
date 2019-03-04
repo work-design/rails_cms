@@ -3,5 +3,5 @@ zh:
     notify:
       video:
         default:
-          title: 你的视频已审核：%{state_i18n}
-          body: 你的视频已审核：%{state_i18n}
+          title: '%{title}'
+          body: 您好!您提交的视频审核%{state_i18n}

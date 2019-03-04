@@ -1,6 +1,6 @@
 class Video < ApplicationRecord
   WM_PREFIX = '0wm'
-  acts_as_notify :default, methods: [:state_i18n, :cover_url]
+  acts_as_notify :default, only: [:title], methods: [:state_i18n, :cover_url]
 
   include CheckMachine
   include RailsGrowthEntity
