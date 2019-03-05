@@ -38,6 +38,7 @@ class Video < ApplicationRecord
       self.save!
       to_notification(
         receiver: self.author,
+        linked: self,
         verbose: true
       ) if self.author
     end
