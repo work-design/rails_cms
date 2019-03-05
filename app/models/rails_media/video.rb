@@ -38,8 +38,6 @@ class Video < ApplicationRecord
       self.save!
       to_notification(
         receiver: self.author,
-        linked: self,
-        link: url_helpers.admin_videos_url(id: self.id),
         verbose: true
       ) if self.author
     end
