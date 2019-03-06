@@ -104,13 +104,17 @@ class Video < ApplicationRecord
     VideoWmJob.perform_later(self)
   end
 
+  def share_count_cache
+    self.update share_count: logs_count('share_video')
+  end
+
   def doing_video_tag
     reg = /#[^#]+[#|\s]/
     r = self.title.scan(reg)
-    tag_strs = r.map do |tag|
+    tag_str = r.map do |tag|
       tag.gsub(/(^#|#$)/, '')
     end
-    tag_ids = tag_strs.map do |tag|
+    tag_ids = tag_str.map do |tag|
       VideoTag.find_or_create_by(name: tag).id
     end
     self.tag_ids = tag_ids
