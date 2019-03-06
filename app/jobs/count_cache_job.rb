@@ -1,7 +1,9 @@
 class CountCacheJob < ApplicationJob
 
-  def perform(video)
-    video.share_count_cache
+  def perform
+    Video.find_each do |video|
+      video.share_count_cache
+    end
   end
 
 end
