@@ -104,7 +104,7 @@ class Video < ApplicationRecord
     VideoWmJob.perform_later(self)
   end
 
-  def share_count_cache
+  def cache_entity_logs
     self.update share_count: logs_count('share_video')
   end
 
