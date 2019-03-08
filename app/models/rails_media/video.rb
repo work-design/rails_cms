@@ -101,7 +101,9 @@ class Video < ApplicationRecord
   end
 
   def doing_water_mark
-    VideoWmJob.perform_later(self)
+    if RailsMedia.config.water_mark
+      VideoWmJob.perform_later(self)
+    end
   end
 
   def cache_entity_logs

@@ -8,6 +8,7 @@ module RailsMedia
     config.my_class = 'MyController'
     config.api_class = 'ApiController'
     config.disabled_models = []
+    config.water_mark = false
     config.water_mark_url = 'http://cloud.1314-edu.com/watermark.gif'
   end
 
