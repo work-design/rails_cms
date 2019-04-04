@@ -20,6 +20,7 @@
       <th><%= Video.human_attribute_name(:media) %></th>
       <th><%= Video.human_attribute_name(:state) %></th>
       <th><%= Video.human_attribute_name(:author_id) %></th>
+      <th><%= Video.human_attribute_name(:created_at) %></th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -41,6 +42,7 @@
       <td>
         <%= link_to video.author.name, admin_user_path(video.author_id) if video.author %>
       </td>
+      <td><time><%= video.created_at.to_s(:rfc822) %></time></td>
       <td class="ui labels">
         <%= link_to admin_video_path(video), data: { tooltip: t('.show') }, class: 'ui blue mini icon button' do %>
           <i class="location arrow icon"></i>
