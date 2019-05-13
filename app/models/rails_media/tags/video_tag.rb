@@ -1,3 +1,0 @@
-class VideoTag < Tag
-
-end

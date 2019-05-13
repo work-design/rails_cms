@@ -1,8 +1,11 @@
-class Audio < ApplicationRecord
-  belongs_to :author, class_name: 'User', optional: true
-  has_one_attached :media
-  has_one_attached :cover
-
+module RailsMedia::Audio
+  extend ActiveSupport::Concern
+  included do
+    belongs_to :author, class_name: 'User', optional: true
+    has_one_attached :media
+    has_one_attached :cover
+  end
+  
   def media_url
     media.service_url if media.attachment.present?
   end

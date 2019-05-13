@@ -1,36 +1,39 @@
-class Video < ApplicationRecord
+# frozen_string_literal: true
+module RailsMedia::Video
   WM_PREFIX = '0wm'
-  acts_as_notify :default, only: [:title], methods: [:state_i18n, :cover_url]
-
-  include CheckMachine
-  include RailsGrowthEntity
-  include RailsInteract::Like
-  include RailsInteract::Comment
-  attribute :share_count, :integer, default: 0
-  attribute :view_count, :integer, default: 0
-  attribute :liked_count, :integer, default: 0
-  attribute :comments_count, :integer, default: 0
-  attribute :state, :string, default: 'draft'
-
-  belongs_to :author, class_name: 'User', optional: true
-  belongs_to :video_taxon, optional: true
-  has_many :taggeds, as: :tagging, dependent: :delete_all
-  has_many :tags, through: :taggeds
-  has_many :attitudes, as: :attitudinal, dependent: :delete_all
-  has_many :progressions, as: :progressive, dependent: :delete_all
-
-  has_one_attached :media
-  has_one_attached :cover
-
-  after_create_commit :doing_water_mark
-  after_create_commit :doing_video_tag
-
-  enum state: {
-    draft: 'draft',
-    verified: 'verified',
-    rejected: 'rejected'
-  }
-
+  extend ActiveSupport::Concern
+  included do
+    include CheckMachine
+    include RailsGrowthEntity
+    include RailsInteract::Like
+    include RailsInteract::Comment
+    attribute :share_count, :integer, default: 0
+    attribute :view_count, :integer, default: 0
+    attribute :liked_count, :integer, default: 0
+    attribute :comments_count, :integer, default: 0
+    attribute :state, :string, default: 'draft'
+  
+    belongs_to :author, class_name: 'User', optional: true
+    belongs_to :video_taxon, optional: true
+    has_many :taggeds, as: :tagging, dependent: :delete_all
+    has_many :tags, through: :taggeds
+    has_many :attitudes, as: :attitudinal, dependent: :delete_all
+    has_many :progressions, as: :progressive, dependent: :delete_all
+  
+    has_one_attached :media
+    has_one_attached :cover
+  
+    after_create_commit :doing_water_mark
+    after_create_commit :doing_video_tag
+  
+    enum state: {
+      draft: 'draft',
+      verified: 'verified',
+      rejected: 'rejected'
+    }
+    acts_as_notify :default, only: [:title], methods: [:state_i18n, :cover_url]
+  end
+  
   def do_trigger(params = {})
     self.trigger_to state: params[:state]
 

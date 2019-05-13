@@ -1,4 +1,4 @@
-module RailsMediaUser
+module RailsMedia::User
   extend ActiveSupport::Concern
 
   included do
