@@ -3,10 +3,6 @@ module RailsMedia::Video
   WM_PREFIX = '0wm'
   extend ActiveSupport::Concern
   included do
-    include CheckMachine
-    include RailsGrowthEntity
-    include RailsInteract::Like
-    include RailsInteract::Comment
     attribute :share_count, :integer, default: 0
     attribute :view_count, :integer, default: 0
     attribute :liked_count, :integer, default: 0
