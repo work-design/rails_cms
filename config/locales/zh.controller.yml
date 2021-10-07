@@ -1,0 +1,13 @@
+zh:
+  cms:
+    admin:
+      title: 内容管理
+      videos:
+        index:
+          title: 视频管理
+      audios:
+        index:
+          title: 音频管理
+      carousels:
+        index:
+          title: 轮播图
