@@ -1,9 +1,11 @@
 zh:
   activerecord:
-    attributes:
-      taxon/type:
-        VideoTaxon: 视频分类
-      video/state:
-        draft: 待审核
-        verified: 已通过
-        rejected: 未通过
+    enum:
+      cms/taxon:
+        type:
+          VideoTaxon: 视频分类
+      cms/video:
+        state:
+          draft: 待审核
+          verified: 已通过
+          rejected: 未通过
