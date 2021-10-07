@@ -1,3 +1,4 @@
+require 'rails_com'
 module RailsCms
   class Engine < ::Rails::Engine
 
@@ -5,6 +6,19 @@ module RailsCms
       "#{config.root}/app/models/tag",
       "#{config.root}/app/models/taxon"
     ]
+
+    config.generators do |g|
+      g.resource_route false
+      g.rails = {
+        assets: false,
+        stylesheets: false,
+        helper: false
+      }
+      g.test_unit = {
+        fixture: true
+      }
+      g.templates.prepend File.expand_path('lib/templates', RailsCom::Engine.root)
+    end
 
   end
 end
