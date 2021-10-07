@@ -1,8 +1,10 @@
 # RailsCms
-Short description and motivation.
 
-## Usage
-How to use my plugin.
+[![测试](https://github.com/work-design/rails_cms/actions/workflows/test.yml/badge.svg)](https://github.com/work-design/rails_cms/actions/workflows/test.yml)
+[![Docker构建](https://github.com/work-design/rails_cms/actions/workflows/cd.yml/badge.svg)](https://github.com/work-design/rails_cms/actions/workflows/cd.yml)
+[![Gem](https://github.com/work-design/rails_cms/actions/workflows/gempush.yml/badge.svg)](https://github.com/work-design/rails_cms/actions/workflows/gempush.yml)
+
+
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -24,5 +26,5 @@ $ gem install rails_cms
 ## Contributing
 Contribution directions go here.
 
-## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+## 许可证
+遵循 [MIT](https://opensource.org/licenses/MIT) 协议
