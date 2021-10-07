@@ -7,6 +7,7 @@ module Cms
       attribute :state, :string
 
       belongs_to :author, class_name: 'Auth::User', optional: true
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
 
       has_one_attached :media
       has_one_attached :cover

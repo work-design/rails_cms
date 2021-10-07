@@ -1,0 +1,5 @@
+<div class="slide" data-controller="slide" data-slide-duration="1s">
+  <% Cms::Carousel.default_where(default_params).each_with_index do |carousel, index| %>
+    <%= render partial: 'carousel', locals: { model: carousel, index: index } %>
+  <% end %>
+</div>

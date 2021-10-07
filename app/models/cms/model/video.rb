@@ -19,6 +19,7 @@ module Cms
       }, _default: 'draft'
 
       belongs_to :author, class_name: 'Auth::User', optional: true
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :video_taxon, optional: true
 
       has_many :taggeds, as: :tagging, dependent: :delete_all
