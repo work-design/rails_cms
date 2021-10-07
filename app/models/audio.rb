@@ -1,3 +1,5 @@
-class Audio < ApplicationRecord
-  include RailsMedia::Audio
-end unless defined? Audio
+module Cms
+  class Audio < ApplicationRecord
+    include Model::Audio
+  end
+end

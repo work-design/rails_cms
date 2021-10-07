@@ -1,0 +1,3 @@
+class VideoTaxon < Taxon
+
+end

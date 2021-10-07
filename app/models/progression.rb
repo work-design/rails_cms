@@ -1,3 +1,5 @@
-class Progression < ApplicationRecord
-  include RailsMedia::Progression
-end unless defined? Progression
+module Cms
+  class Progression < ApplicationRecord
+    include Model::Progression
+  end
+end

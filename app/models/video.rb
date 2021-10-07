@@ -1,7 +1,9 @@
-class Video < ApplicationRecord
-  include RailsMedia::Video
-  include CheckMachine
-  include RailsGrowth::Entity
-  include RailsInteract::Like
-  include RailsInteract::Commentable
-end unless defined? Video
+module Cms
+  class Video < ApplicationRecord
+    include Model::Video
+    #include CheckMachine
+    include Growth::Ext::Entity
+    include Interact::Model::Like
+    include Interact::Model::Commentable
+  end
+end
