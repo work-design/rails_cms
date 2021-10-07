@@ -1,3 +1,5 @@
-class VideoTaxon < Taxon
+module Cms
+  class VideoTaxon < ApplicationRecord
 
+  end
 end

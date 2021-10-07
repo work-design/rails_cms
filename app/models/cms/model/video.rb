@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Cms
-  module RailsMedia::Video
+  module Model::Video
     WM_PREFIX = '0wm'
     extend ActiveSupport::Concern
 

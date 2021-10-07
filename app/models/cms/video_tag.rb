@@ -1,3 +1,5 @@
-class VideoTag < Tag
+module Cms
+  class VideoTag < ApplicationRecord
 
+  end
 end
