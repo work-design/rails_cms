@@ -1,0 +1,5 @@
+<td><%= model.id %></td>
+<td><%= model.title %></td>
+<td><%= model.state %></td>
+<td><%= model.author.name if model.author %></td>
+<td><%= link_to '预览', rails_ext_video_path(model.media.id), target: '_blank' if model.media.attached? %></td>

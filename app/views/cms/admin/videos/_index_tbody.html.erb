@@ -1,0 +1,16 @@
+<td><%= model.id %></td>
+<td><%= model.title %></td>
+<td><%= image_tag model.cover, class: 'ui small image' if model.cover.attached? %></td>
+<td><%= link_to '预览', rails_ext_video_path(model.media&.id), target: '_blank' %></td>
+<td class="ui labels">
+  <label class="ui label"><%= model.state_i18n %></label>
+  <div class="ui mini buttons">
+    <%= link_to t('.approve'), new_check_path('Video', model.id, state: Video.states[:verified]), remote: true, class: 'ui positive button' %>
+    <div class="or"></div>
+    <%= link_to t('.reject'), new_check_path('Video', model.id, state: Video.states[:rejected]), remote: true, class: 'ui negative button' %>
+  </div>
+</td>
+<td>
+  <%= link_to model.author.name, admin_user_path(model.author_id) if model.author %>
+</td>
+<td><time data-controller="time"><%= model.created_at.to_s(:rfc822) %></time></td>
