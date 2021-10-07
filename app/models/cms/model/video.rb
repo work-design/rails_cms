@@ -5,13 +5,20 @@ module Cms
     extend ActiveSupport::Concern
 
     included do
+      attribute :title, :string
       attribute :share_count, :integer, default: 0
       attribute :view_count, :integer, default: 0
       attribute :liked_count, :integer, default: 0
       attribute :comments_count, :integer, default: 0
-      attribute :state, :string, default: 'draft'
+      attribute :water_mark_job, :string
 
-      belongs_to :author, class_name: 'User', optional: true
+      enum state: {
+        draft: 'draft',
+        verified: 'verified',
+        rejected: 'rejected'
+      }, _default: 'draft'
+
+      belongs_to :author, class_name: 'Auth::User', optional: true
       belongs_to :video_taxon, optional: true
 
       has_many :taggeds, as: :tagging, dependent: :delete_all
@@ -25,11 +32,6 @@ module Cms
       after_create_commit :doing_water_mark
       after_create_commit :doing_video_tag
 
-      enum state: {
-        draft: 'draft',
-        verified: 'verified',
-        rejected: 'rejected'
-      }
       acts_as_notify :default, only: [:title], methods: [:state_i18n, :cover_url]
     end
 

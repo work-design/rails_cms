@@ -3,6 +3,9 @@ module Cms
     extend ActiveSupport::Concern
 
     included do
+      attribute :title, :string
+      attribute :state, :string
+
       belongs_to :author, class_name: 'Auth::User', optional: true
 
       has_one_attached :media
