@@ -1,4 +1,4 @@
-<div class="slide" data-controller="slide" data-slide-play-value="true" style="--height: 100%">
+<div class="slide" data-controller="slide" data-slide-play-value="true">
   <% Cms::Carousel.default_where(default_params).each_with_index do |carousel, index| %>
     <%= render partial: 'carousel', locals: { model: carousel, index: index } %>
   <% end %>
