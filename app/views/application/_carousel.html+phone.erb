@@ -2,7 +2,7 @@
   <% if model.image.content_type.to_s.start_with?('video') %>
     <%= video_tag model.image.url, controls: true %>
   <% else %>
-    <%= image_tag model.image %>
+    <%= image_tag model.image, style: 'object-fit: contain' %>
   <% end %>
   <figcaption><%= index + 1 %>/<%= 3 %></figcaption>
 </figure>
