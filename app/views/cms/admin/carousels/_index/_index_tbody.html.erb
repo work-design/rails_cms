@@ -1,0 +1,7 @@
+<td>
+  <i class="fa-light fa-bars fa-fw has-text-grey is-drawable"></i>
+  <span><%= model.title %></span>
+</td>
+<td>
+  <%= image_tag model.image, class: 'image is-48x48' if model.image.attached? %>
+</td>

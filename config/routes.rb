@@ -18,7 +18,11 @@ Rails.application.routes.draw do
     namespace :admin, defaults: { namespace: 'admin' } do
       resources :videos
       resources :audios
-      resources :carousels
+      resources :carousels do
+        member do
+          patch :reorder
+        end
+      end
     end
   end
 
