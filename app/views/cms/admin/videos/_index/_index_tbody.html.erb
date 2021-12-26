@@ -1,4 +1,3 @@
-<td><%= model.id %></td>
 <td><%= model.title %></td>
 <td><%= image_tag model.cover, class: 'ui small image' if model.cover.attached? %></td>
 <td><%= link_to '预览', rails_ext_video_path(model.media&.id), target: '_blank' %></td>
