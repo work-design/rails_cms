@@ -1,0 +1,11 @@
+module Cms
+
+  def self.use_relative_model_naming?
+    true
+  end
+
+  def self.table_name_prefix
+    'cms_'
+  end
+
+end
