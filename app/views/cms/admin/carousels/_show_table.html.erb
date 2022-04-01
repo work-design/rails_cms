@@ -4,5 +4,5 @@
 </tr>
 <tr>
   <td class="has-text-right"><%= Cms::Carousel.human_attribute_name(:image) %></td>
-  <td><%= @carousel.image %></td>
+  <td><%= image_tag @carousel.image, class: 'image is-128x128' %></td>
 </tr>
