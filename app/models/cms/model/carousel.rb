@@ -18,5 +18,15 @@ module Cms
       default_scope -> { order(position: :asc) }
     end
 
+    def ratio
+      width = image_blob.metadata['width']
+      height = image_blob.metadata['height']
+      if width && height
+        (height.to_d / width).round(2)
+      else
+        0
+      end
+    end
+
   end
 end
