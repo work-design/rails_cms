@@ -19,13 +19,22 @@ module Cms
     end
 
     def ratio
-      width = image_blob.metadata['width']
-      height = image_blob.metadata['height']
+      width = image.blob.metadata['width']
+      height = image.blob.metadata['height']
       if width && height
         (height.to_d / width).round(2)
       else
         0
       end
+    end
+
+    class_methods do
+
+      def max_ratio
+        r = with_attached_image.map(&:ratio)
+        r.max
+      end
+
     end
 
   end
