@@ -3,7 +3,7 @@ module Cms
     extend ActiveSupport::Concern
 
     included do
-      attribute :rate, :decimal
+      attribute :ratio, :decimal, comment: '完成比例'
       attribute :time, :decimal
       attribute :duration, :decimal
 
