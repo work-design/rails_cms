@@ -36,6 +36,13 @@ GIT
     rails_extend (1.0.1)
       rails (>= 5.0)
 
+GIT
+  remote: https://github.com/work-design/rails_notice.git
+  revision: 9466b5ecddd76cb3b61d71db5d6b14394575c4d5
+  specs:
+    rails_notice (1.0.3)
+      rails_extend
+
 PATH
   remote: .
   specs:
@@ -266,6 +273,7 @@ DEPENDENCIES
   rails_com!
   rails_design!
   rails_extend!
+  rails_notice!
   sdoc
 
 BUNDLED WITH
