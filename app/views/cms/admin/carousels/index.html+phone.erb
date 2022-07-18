@@ -1,0 +1,5 @@
+<%= render layout: 'index_sortable_table' do %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @carousels, as: :model %>
+<% end %>
+
+<%= paginate @carousels %>
