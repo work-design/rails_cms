@@ -32,7 +32,7 @@ module Cms
 
       def max_ratio
         r = with_attached_image.map(&:ratio)
-        r.max
+        r.max || 1
       end
 
     end
