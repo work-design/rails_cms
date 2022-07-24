@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope RailsExtend.default_routes_scope do
+  scope RailsCom.default_routes_scope do
     namespace :cms, defaults: { business: 'cms' } do
       resources :videos do
         collection do
