@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :carousels
 
       namespace :admin, defaults: { namespace: 'admin' } do
+        root 'home#index'
         resources :videos
         resources :audios
         resources :carousels do
