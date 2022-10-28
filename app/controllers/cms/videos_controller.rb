@@ -1,7 +1,7 @@
 module Cms
   class VideosController < BaseController
     before_action :set_video, only: [:show, :viewed, :update, :destroy]
-    before_action :require_login, only: [:viewed, :starred, :create, :update, :destroy]
+    before_action :require_user, only: [:viewed, :starred, :create, :update, :destroy]
 
     def index
       q_params = params.permit(:video_taxon_id, :author_id, 'title-like', 'created_at-desc', 'view_count-desc', :id)

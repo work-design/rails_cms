@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 4a62531a28acc35a71bc9fad26c84414fbdbba25
+  revision: 9e4f6b3be7d489d23b3c24b1b8bc7c50055d0b8c
   specs:
     rails_com (1.3.0)
       acme-client
@@ -24,14 +24,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 603707945fcd4f23dca61a3f2f1088f2d8b227d5
+  revision: 9dafcbf1542fec8d44f01267c6f01371c41b7045
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: fd62dfafebeebe96579346fdf27f1c60c59938d4
+  revision: 1283af860122e5b3304901582e61e0093e921114
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
@@ -129,7 +129,7 @@ GEM
       with_advisory_lock (>= 4.0.0)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
-    debug (1.6.2)
+    debug (1.6.3)
       irb (>= 1.3.6)
       reline (>= 0.3.1)
     erubi (1.11.0)
@@ -171,7 +171,7 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     minitest (5.16.3)
-    net-http (0.2.2)
+    net-http (0.3.0)
       uri
     net-imap (0.3.1)
       net-protocol
@@ -182,10 +182,10 @@ GEM
     net-smtp (0.3.2)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.13.8)
+    nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    pg (1.4.3)
+    pg (1.4.4)
     propshaft (0.6.4)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -193,7 +193,7 @@ GEM
       railties (>= 7.0.0)
     psych (4.0.6)
       stringio
-    puma (5.6.5)
+    puma (6.0.0)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.4)
@@ -236,7 +236,7 @@ GEM
     stringio (3.0.2)
     thor (1.2.1)
     timeout (0.3.0)
-    turbo-rails (1.3.0)
+    turbo-rails (1.3.2)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -269,4 +269,4 @@ DEPENDENCIES
   sdoc
 
 BUNDLED WITH
-   2.3.4
+   2.3.7
