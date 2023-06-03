@@ -1,4 +1,4 @@
-<div class="slide" data-controller="slide" data-slide-delay-value="2" data-slide-target="container">
+<div class="slide" data-controller="slide" data-slide-delay-value="4" data-slide-target="container">
 <% Cms::Carousel.default_where(default_params).each_with_index do |carousel, index| %>
   <figure class="image" data-action="touchmove->slide#move:passive touchend->slide#end:passive" data-index="<%= index %>">
     <% if carousel.image.content_type.to_s.start_with?('video') %>
