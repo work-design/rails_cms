@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 02c18d8930c32720e9fdcfafe611ac3dce3ef3fa
+  revision: b4320afda426e1d18fab8e4bdacbfc6cda09559a
   specs:
     rails_design (0.0.1)
       rails
@@ -146,10 +146,10 @@ GEM
     http-form_data (2.3.0)
     httpx (0.23.3)
       http-2-next (>= 0.4.1)
-    i18n (1.14.0)
+    i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
-    irb (1.6.4)
+    irb (1.7.0)
       reline (>= 0.3.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -235,12 +235,12 @@ GEM
     rake (13.0.6)
     rdoc (6.5.0)
       psych (>= 4.0.0)
-    reline (0.3.4)
+    reline (0.3.5)
       io-console (~> 0.5)
     ruby2_keywords (0.0.5)
     sdoc (2.6.1)
       rdoc (>= 5.0)
-    stringio (3.0.6)
+    stringio (3.0.7)
     thor (1.2.2)
     timeout (0.3.2)
     turbo-rails (1.4.0)
@@ -276,4 +276,4 @@ DEPENDENCIES
   sdoc
 
 BUNDLED WITH
-   2.3.7
+   2.4.10
