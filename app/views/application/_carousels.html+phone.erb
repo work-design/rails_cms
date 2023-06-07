@@ -6,7 +6,7 @@
     <% else %>
       <%= image_tag carousel.image %>
     <% end %>
-    <figcaption><%= index %>/<%= Cms::Carousel.default_where(default_params).size %></figcaption>
+    <figcaption><%= index + 1 %>/<%= Cms::Carousel.default_where(default_params).size %></figcaption>
   </figure>
 <% end %>
 </div>
