@@ -4,7 +4,7 @@
     <% if carousel.image.content_type.to_s.start_with?('video') %>
       <%= video_tag carousel.image.url, controls: true %>
     <% else %>
-      <%= image_tag carousel.image, style: 'object-fit: contain' %>
+      <%= image_tag carousel.image %>
     <% end %>
     <figcaption><%= index + 1 %>/<%= Cms::Carousel.default_where(default_params).size %></figcaption>
   </figure>
