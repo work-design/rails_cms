@@ -32,7 +32,12 @@ module Cms
 
       def max_ratio
         r = with_attached_image.map(&:ratio)
-        r.max || 1
+        ((r.max || 1) * 100).to_fs(:percentage, precision: 0)
+      end
+
+      def min_ratio
+        r = with_attached_image.map(&:ratio)
+        ((r.min || 1) * 100).to_fs(:percentage, precision: 0)
       end
 
     end
