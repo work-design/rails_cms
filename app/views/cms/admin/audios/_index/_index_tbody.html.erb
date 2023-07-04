@@ -1,4 +1,8 @@
-<td><%= model.title %></td>
+<td>
+  <p><%= model.title %></p>
+  <p><%= model.media.blob.filename.to_s if model.media.attached? %></p>
+</td>
 <td><%= model.state %></td>
 <td><%= model.author.name if model.author %></td>
 <td><%= audio_tag model.media.url(disposition: params[:disposition]), controls: true if model.media.attached? %></td>
+<td><%= model.media.blob.byte_size.to_fs(:human_size) if model.media.attached? %></td>
