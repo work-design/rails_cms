@@ -1,12 +1,12 @@
 <td><%= model.title %></td>
-<td><%= image_tag model.cover, class: 'ui small image' if model.cover.attached? %></td>
-<td><%= link_to '预览', rails_ext_video_path(model.media&.id), target: '_blank' %></td>
-<td class="ui labels">
-  <label class="ui label"><%= model.state_i18n %></label>
-  <div class="ui mini buttons">
-    <%= link_to t('.approve'), new_check_path('Video', model.id, state: Video.states[:verified]), remote: true, class: 'ui positive button' %>
+<td><%= image_tag model.cover, class: 'image' if model.cover.attached? %></td>
+<td><%= audio_tag model.media.url(disposition: params[:disposition]), controls: true %></td>
+<td>
+  <label class="tag"><%= model.state_i18n %></label>
+  <div class="buttons">
+    <%= link_to t('.approve'), new_check_path('Video', model.id, state: Video.states[:verified]), remote: true, class: 'button is-success' %>
     <div class="or"></div>
-    <%= link_to t('.reject'), new_check_path('Video', model.id, state: Video.states[:rejected]), remote: true, class: 'ui negative button' %>
+    <%= link_to t('.reject'), new_check_path('Video', model.id, state: Video.states[:rejected]), remote: true, class: 'button is-danger' %>
   </div>
 </td>
 <td>
