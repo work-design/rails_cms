@@ -6,7 +6,4 @@
   <%= image_tag model.image, class: 'image is-48x48' if model.image.attached? %>
 </td>
 <td><%= model.ratio %></td>
-<td>
-  <p><%= model.link_controller %></p>
-  <p><%= model.link_action %></p>
-</td>
+<td><%= model.link %></td>
