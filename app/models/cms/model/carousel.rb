@@ -7,7 +7,7 @@ module Cms
       attribute :position, :integer
       attribute :link_controller, :string
       attribute :link_action, :string
-      attribute :link_params, :json
+      attribute :link_params, :json, default: {}
 
       has_one_attached :image
 
