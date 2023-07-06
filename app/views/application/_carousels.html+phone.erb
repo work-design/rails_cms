@@ -1,7 +1,7 @@
 <div data-controller="slide" data-slide-delay-value="3" data-slide-debug-value="true" data-slide-target="container" class="slide" style="padding-bottom: <%= Cms::Carousel.default_where(default_params).min_ratio %>">
 <% Cms::Carousel.default_where(default_params).each_with_index do |carousel, index| %>
   <% if carousel.link_controller.present? %>
-    <%= link_to({ controller: carousel.link_controller, action: carousel.link_action, **carousel.link_json }) do %>
+    <%= link_to({ controller: carousel.link_controller, action: carousel.link_action, **carousel.link_params }) do %>
       <figure class="image" data-action="touchmove->slide#move:passive touchend->slide#end:passive" data-index="<%= index %>">
         <% if carousel.image.content_type.to_s.start_with?('video') %>
           <%= video_tag carousel.image.url, controls: true %>
