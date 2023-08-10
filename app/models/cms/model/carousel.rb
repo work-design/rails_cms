@@ -6,6 +6,7 @@ module Cms
       attribute :title, :string
       attribute :position, :integer
       attribute :link, :string
+      attribute :enabled, :boolean, default: true
 
       has_one_attached :image
 
@@ -14,6 +15,7 @@ module Cms
       acts_as_list scope: :organ_id
 
       default_scope -> { order(position: :asc) }
+      scope :enabled, -> { where(enabled: true) }
     end
 
     def ratio
