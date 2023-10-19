@@ -32,8 +32,6 @@ module Cms
 
       after_create_commit :doing_water_mark
       after_create_commit :doing_video_tag
-
-      acts_as_notify :default, only: [:title], methods: [:state_i18n, :cover_url]
     end
 
     def do_trigger(params = {})
