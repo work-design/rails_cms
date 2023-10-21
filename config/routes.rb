@@ -15,8 +15,10 @@ Rails.application.routes.draw do
       resources :audios, only: [:index]
       resources :carousels
 
+
       namespace :admin, defaults: { namespace: 'admin' } do
         root 'home#index'
+        resources :covers
         resources :videos
         resources :audios
         resources :carousels do

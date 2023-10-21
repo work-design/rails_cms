@@ -3,6 +3,9 @@
 <figure data-controller="player">
   <%= audio_tag @audio.media.url, data: { player_target: 'media' } %>
 
+  <div class="image">
+    <%= image_tag Cms::Cover.first.media.url, class: 'image is-rounded is-128x128 has-animate-anticlockwise' %>
+  </div>
   <div class="has-v-centered">
     <button data-action="player#toggle" class="button is-small">
       <i class="fa-solid fa-play"></i>
