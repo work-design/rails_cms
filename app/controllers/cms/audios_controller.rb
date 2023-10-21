@@ -10,9 +10,5 @@ module Cms
     def set_audio
       @audio = Audio.find(params[:id])
     end
-
-    def audio_params
-      params.fetch(:audio, {})
-    end
   end
 end

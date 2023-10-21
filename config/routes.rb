@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       end
       resources :video_taxons
       resources :video_tags
-      resources :audios, only: [:index]
+      resources :audios, only: [:index, :show]
       resources :carousels
 
 
