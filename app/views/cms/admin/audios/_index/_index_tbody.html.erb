@@ -1,5 +1,5 @@
 <td>
-  <p><%= model.title %></p>
+  <p><%= link_to model.title, { action: 'show', id: model.id } %></p>
   <p><%= model.media.blob.filename.to_s if model.media.attached? %></p>
 </td>
 <td><%= model.state %></td>
