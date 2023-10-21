@@ -19,7 +19,8 @@ module Cms
         :title,
         :state,
         :author_id,
-        :media
+        :media,
+        :cover
       )
       p.merge! default_form_params
     end
