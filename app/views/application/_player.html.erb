@@ -1,0 +1,14 @@
+
+
+<figure data-controller="player">
+  <%= audio_tag @audio.media.url, data: { player_target: 'media' } %>
+  <div class="image" style="background-image: url(<%= image_path('player_bg.jpg') %>)">
+    <%= image_tag @audio.cover.url, data: { player_target: 'cover' }, class: 'image is-rounded is-128x128 as-centered has-animate-anticlockwise' %>
+  </div>
+  <div class="has-v-centered">
+    <button data-action="player#toggle" class="button is-small">
+      <i class="fa-solid fa-play"></i>
+    </button>
+    <progress data-player-target="progress" value="0" class="progress is-primary ml-2"></progress>
+  </div>
+</figure>
