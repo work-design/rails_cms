@@ -6,6 +6,7 @@ gem 'rails'
 gem 'puma'
 gem 'pg'
 gem 'propshaft'
+gem 'good_job'
 
 gem 'default_where', github: 'qinmingyuan/default_where'
 
@@ -17,6 +18,7 @@ gem 'rails_notice', github: 'work-design/rails_notice'
 gem 'amazing_print'
 
 group :development do
+  gem 'listen'
   gem 'sdoc'
 end
 
