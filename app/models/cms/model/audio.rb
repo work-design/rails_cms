@@ -9,6 +9,9 @@ module Cms
       belongs_to :author, class_name: 'Auth::User', optional: true
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
+      has_many :audio_tags
+      has_many :tags, through: :audio_tags
+
       has_one_attached :media
       has_one_attached :cover
     end
