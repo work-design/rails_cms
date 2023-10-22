@@ -15,3 +15,6 @@ zh:
       covers:
         index:
           title: 图
+      tags:
+        index:
+          title: 标签

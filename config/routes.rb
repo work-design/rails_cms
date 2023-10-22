@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
       namespace :admin, defaults: { namespace: 'admin' } do
         root 'home#index'
+        resources :tags
         resources :covers
         resources :videos
         resources :audios
