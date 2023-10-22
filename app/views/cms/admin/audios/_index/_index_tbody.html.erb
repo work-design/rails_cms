@@ -6,3 +6,8 @@
 <td><%= model.author.name if model.author %></td>
 <td><%= audio_tag model.media.url(disposition: params[:disposition]), controls: true if model.media.attached? %></td>
 <td><%= model.media.blob.byte_size.to_fs(:human_size) if model.media.attached? %></td>
+<td>
+  <% model.tags.each do |tag| %>
+    <span class="tag"><%= tag.name %></span>
+  <% end %>
+</td>
