@@ -1,1 +1,1 @@
-<%= render 'player' %>
+<%= render partial: 'player', locals: { media_url: @audio.media.url, cover_url: @audio.cover.url } %>

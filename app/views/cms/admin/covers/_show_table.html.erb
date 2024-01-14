@@ -1,12 +1,9 @@
 <tr>
-  <td class="right aligned"><%= Cms::Video.human_attribute_name(:title) %></td>
-  <td><%= @video.title %></td>
+  <td class="right aligned"><%= Cms::Cover.human_attribute_name(:title) %></td>
+  <td><%= @cover.title %></td>
 </tr>
 <tr>
-  <td class="right aligned"><%= Cms::Video.human_attribute_name(:state) %></td>
-  <td><%= @video.state %></td>
+  <td class="right aligned"><%= Cms::Cover.human_attribute_name(:media) %></td>
+  <td><%= image_tag @cover.media, class: 'image is-128x128' %></td>
 </tr>
-<tr>
-  <td class="right aligned"><%= Cms::Video.human_attribute_name(:author_id) %></td>
-  <td><%= @video.author_id %></td>
-</tr>
+
