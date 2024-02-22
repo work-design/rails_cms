@@ -6,7 +6,6 @@ gem 'rails'
 gem 'puma'
 gem 'pg'
 gem 'propshaft'
-gem 'good_job'
 
 gem 'default_where', github: 'qinmingyuan/default_where'
 
