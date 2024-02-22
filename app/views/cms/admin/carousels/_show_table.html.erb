@@ -1,8 +1,8 @@
 <tr>
-  <td class="has-text-right"><%= Cms::Carousel.human_attribute_name(:title) %></td>
+  <td><%= Cms::Carousel.human_attribute_name(:title) %></td>
   <td><%= @carousel.title %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Cms::Carousel.human_attribute_name(:image) %></td>
+  <td><%= Cms::Carousel.human_attribute_name(:image) %></td>
   <td><%= image_tag @carousel.image, class: 'image is-128x128' %></td>
 </tr>
