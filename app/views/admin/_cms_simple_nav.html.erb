@@ -1,0 +1,9 @@
+<div data-controller="menu empty" class="<%= active_helper(modules: 'cms/admin', active: 'menu ex-accordion is-active', item: 'menu ex-accordion is-active') %>">
+  <div class="menu-label">
+    <i class="fa-solid fa-fw fa-file-lines"></i>
+    <span><%= t('cms.admin.title') %></span>
+  </div>
+  <div data-empty-target="content" class="menu-list">
+    <%= link_to t('cms.admin.audios.index.title'), { controller: 'cms/admin/audios' }, class: active_helper(controllers: 'audios', active: 'is-active') %>
+  </div>
+</div>
