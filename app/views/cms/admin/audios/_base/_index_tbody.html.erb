@@ -3,7 +3,15 @@
   <p><%= model.media.blob.filename.to_s if model.media.attached? %></p>
 </td>
 <td><%= model.state %></td>
-<td><%= image_tag model.cover, class: 'image is-64x64' if model.cover.attached? %></td>
+<td>
+<% if model.cover.attached? %>
+  <% if ['video/mp4'].include?(model.cover_blob.content_type) %>
+    <%= video_tag model.cover, class: 'image is-64x64' %>
+  <% else %>
+    <%= image_tag model.cover, class: 'image is-64x64' %>
+  <% end %>
+<% end %>
+</td>
 <td><%= audio_tag model.media.url(disposition: params[:disposition]), controls: true if model.media.attached? %></td>
 <td><%= model.media.blob.byte_size.to_fs(:human_size) if model.media.attached? %></td>
 <td>
