@@ -3,8 +3,10 @@ module Cms
     before_action :set_video, only: [:show, :edit, :update, :destroy]
 
     def index
-      q_params = {}.with_indifferent_access
+      q_params = {}
+      q_params.merge! default_params
       q_params.merge! params.permit(:author_id)
+
       @videos = Video.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
@@ -23,6 +25,7 @@ module Cms
         :video_taxon_id,
       )
       q.merge!(author_id: current_user.id) if q[:author_id].blank?
+      q.merge! default_form_params
       q
     end
 
