@@ -22,9 +22,9 @@ module Cms
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :video_taxon, optional: true
 
-      has_many :taggeds, as: :tagging, dependent: :delete_all
-      has_many :tags, through: :taggeds
-      has_many :attitudes, as: :attitudinal, dependent: :delete_all
+      #has_many :video_tags, dependent: :delete_all
+      #has_many :tags, through: :video_tags
+      #has_many :attitudes, as: :attitudinal, dependent: :delete_all
       has_many :progressions, as: :progressive, dependent: :delete_all
 
       has_one_attached :media
@@ -104,7 +104,7 @@ module Cms
     end
 
     def doing_water_mark
-      if RailsMedia.config.water_mark
+      if RailsCms.config.water_mark
         VideoWmJob.perform_later(self)
       end
     end
