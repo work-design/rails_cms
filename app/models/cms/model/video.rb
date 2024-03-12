@@ -31,7 +31,6 @@ module Cms
       has_one_attached :cover
 
       after_create_commit :doing_water_mark
-      after_create_commit :doing_video_tag
     end
 
     def do_trigger(params = {})
