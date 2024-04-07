@@ -1,12 +1,12 @@
-<tr>
-  <td class="right aligned"><%= Cms::Audio.human_attribute_name(:title) %></td>
-  <td><%= @audio.title %></td>
-</tr>
-<tr>
-  <td class="right aligned"><%= Cms::Audio.human_attribute_name(:state) %></td>
-  <td><%= @audio.state %></td>
-</tr>
-<tr>
-  <td class="right aligned"><%= Cms::Audio.human_attribute_name(:author) %></td>
-  <td><%= @audio.author %></td>
-</tr>
+<div>
+  <dt><%= Cms::Audio.human_attribute_name(:title) %></dt>
+  <dd><%= @audio.title %></dd>
+</div>
+<div>
+  <dt><%= Cms::Audio.human_attribute_name(:state) %></dt>
+  <dd><%= @audio.state %></dd>
+</div>
+<div>
+  <dt><%= Cms::Audio.human_attribute_name(:author) %></dt>
+  <dd><%= @audio.author %></dd>
+</div>

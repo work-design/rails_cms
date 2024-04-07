@@ -1,12 +1,12 @@
-<tr>
-  <td class="right aligned"><%= Cms::Video.human_attribute_name(:title) %></td>
-  <td><%= @video.title %></td>
-</tr>
-<tr>
-  <td class="right aligned"><%= Cms::Video.human_attribute_name(:state) %></td>
-  <td><%= @video.state %></td>
-</tr>
-<tr>
-  <td class="right aligned"><%= Cms::Video.human_attribute_name(:author_id) %></td>
-  <td><%= @video.author_id %></td>
-</tr>
+<div>
+  <dt><%= Cms::Video.human_attribute_name(:title) %></dt>
+  <dd><%= @video.title %></dd>
+</div>
+<div>
+  <dt><%= Cms::Video.human_attribute_name(:state) %></dt>
+  <dd><%= @video.state %></dd>
+</div>
+<div>
+  <dt><%= Cms::Video.human_attribute_name(:author_id) %></dt>
+  <dd><%= @video.author_id %></dd>
+</div>

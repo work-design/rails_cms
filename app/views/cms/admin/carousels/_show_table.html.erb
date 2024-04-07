@@ -1,8 +1,8 @@
-<tr>
-  <td><%= Cms::Carousel.human_attribute_name(:title) %></td>
-  <td><%= @carousel.title %></td>
-</tr>
-<tr>
-  <td><%= Cms::Carousel.human_attribute_name(:image) %></td>
-  <td><%= image_tag @carousel.image, class: 'image is-128x128' %></td>
-</tr>
+<div>
+  <dt><%= Cms::Carousel.human_attribute_name(:title) %></dt>
+  <dd><%= @carousel.title %></dd>
+</div>
+<div>
+  <dt><%= Cms::Carousel.human_attribute_name(:image) %></dt>
+  <dt><%= image_tag @carousel.image, class: 'image is-128x128' %></dd>
+</div>
