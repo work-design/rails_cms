@@ -1,0 +1,12 @@
+<div data-controller="slide" data-slide-play-value="true" data-slide-circle-value="true" class="slide">
+  <div class="slide-container" data-slide-target="container">
+    <% @carousels.each_with_index do |carousel, index| %>
+      <%= render partial: 'carousel', locals: { model: carousel, index: index } %>
+    <% end %>
+  </div>
+  <div class="slide-dot" data-slide-target="dot">
+    <% @carousels.each_with_index do |_, index| %>
+      <i data-index="<%= index %>" class="<%= index == 0 ? 'has-text-white' : 'has-text-black' %>">•</i>
+    <% end %>
+  </div>
+</div>
