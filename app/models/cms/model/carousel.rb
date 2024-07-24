@@ -14,7 +14,6 @@ module Cms
 
       positioned on: :organ_id
 
-      default_scope -> { order(position: :asc) }
       scope :enabled, -> { where(enabled: true) }
     end
 
