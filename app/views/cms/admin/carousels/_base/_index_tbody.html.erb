@@ -3,7 +3,7 @@
   <span><%= model.title %></span>
 </td>
 <td>
-  <%= image_tag model.image, class: 'image is-48x48' if model.image.attached? %>
+  <%= image_tag model.image.url, class: 'image is-48x48' if model.image.attached? %>
 </td>
 <td><%= model.ratio %></td>
 <td><%= model.link %></td>

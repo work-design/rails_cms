@@ -12,7 +12,7 @@ module Cms
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 
-      acts_as_list scope: :organ_id
+      positioned on: :organ_id
 
       default_scope -> { order(position: :asc) }
       scope :enabled, -> { where(enabled: true) }
