@@ -3,6 +3,9 @@ zh:
     title: 内容管理
     admin:
       title: 内容管理
+      home:
+        index:
+          title: 内容管理
       videos:
         index:
           title: 视频管理

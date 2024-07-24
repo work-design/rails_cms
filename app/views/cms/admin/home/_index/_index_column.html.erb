@@ -1,0 +1,19 @@
+<div class="fixed-grid has-6-cols">
+  <div class="grid">
+    <%= link_to({ controller: 'cms/admin/carousels' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('.carousels.index.title') %></span>
+    <% end %>
+    <%= link_to({ controller: 'cms/admin/audios' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('.audios.index.title') %></span>
+    <% end %>
+    <%= link_to({ controller: 'cms/admin/videos' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('.videos.index.title') %></span>
+    <% end %>
+    <%= link_to({ controller: 'cms/admin/covers' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('.covers.index.title') %></span>
+    <% end %>
+    <%= link_to({ controller: 'cms/admin/tags' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('.tags.index.title') %></span>
+    <% end %>
+  </div>
+</div>
