@@ -20,5 +20,11 @@ module RailsCms
       g.templates.prepend File.expand_path('lib/templates', RailsCom::Engine.root)
     end
 
+    initializer 'rails_cms.add_json_paths' do
+      ActiveSupport.on_load(:action_controller_base) do
+        append_view_path RailsCms::Engine.root.join('app/jsons')
+      end
+    end
+
   end
 end
