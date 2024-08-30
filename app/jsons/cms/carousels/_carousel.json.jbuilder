@@ -1,1 +1,1 @@
-json.id model.id
+json.extract! model, :id, :link, :title, :image_url, :ratio

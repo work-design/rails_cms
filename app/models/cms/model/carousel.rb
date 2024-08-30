@@ -27,6 +27,10 @@ module Cms
       end
     end
 
+    def image_url
+      image.url
+    end
+
     class_methods do
 
       def max_ratio
