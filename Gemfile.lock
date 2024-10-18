@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 5d2a379311a2058ed3ed28b1b6c86fefbc1e3af1
+  revision: 32740261f8831120fb79f3e753a9a7d726287d70
   specs:
     rails_com (1.3.0)
       acme-client
@@ -22,20 +22,22 @@ GIT
       net-pop
       ostruct
       positioning
-      rails (~> 7.0)
+      rails
+      reline
+      solid_cache
       solid_queue
       turbo-rails
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 5665664e89f0661e88588388e1d2d8e46b7f9e22
+  revision: 9fb6e5ce7f75a02ac0c5629ad237f61003fa6e15
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 4f04360e7f5bc4b02a2b2844a3d69055ec3e8786
+  revision: f13fa4022d5cdde70e280a1571aeedab5db35ff1
   specs:
     rails_notice (1.0.3)
       rails_com
@@ -49,7 +51,8 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    acme-client (2.0.18)
+    acme-client (2.0.19)
+      base64 (~> 0.2.0)
       faraday (>= 1.0, < 3.0.0)
       faraday-retry (>= 1.0, < 3.0.0)
     actioncable (7.2.1)
@@ -140,10 +143,11 @@ GEM
     erubi (1.13.0)
     et-orbi (1.2.11)
       tzinfo
-    faraday (2.10.1)
-      faraday-net_http (>= 2.0, < 3.2)
+    faraday (2.12.0)
+      faraday-net_http (>= 2.0, < 3.4)
+      json
       logger
-    faraday-net_http (3.1.1)
+    faraday-net_http (3.3.0)
       net-http
     faraday-retry (2.2.1)
       faraday (~> 2.0)
@@ -168,6 +172,7 @@ GEM
     irb (1.14.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
+    json (2.7.2)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -231,7 +236,7 @@ GEM
       racc (~> 1.4)
     ostruct (0.6.0)
     pg (1.5.7)
-    positioning (0.2.6)
+    positioning (0.3.0)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
     propshaft (0.9.1)
@@ -293,22 +298,26 @@ GEM
     sdoc (2.6.1)
       rdoc (>= 5.0)
     securerandom (0.3.1)
-    solid_queue (0.6.0)
+    solid_cache (1.0.6)
+      activejob (>= 7.2)
+      activerecord (>= 7.2)
+      railties (>= 7.2)
+    solid_queue (1.0.0)
       activejob (>= 7.1)
       activerecord (>= 7.1)
       concurrent-ruby (>= 1.3.1)
       fugit (~> 1.11.0)
       railties (>= 7.1)
+      thor (~> 1.3.1)
     stringio (3.1.1)
     thor (1.3.1)
     timeout (0.4.1)
-    turbo-rails (2.0.6)
+    turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uri (0.13.0)
+    uri (0.13.1)
     useragent (0.16.10)
     webrick (1.8.1)
     websocket-driver (0.7.6)

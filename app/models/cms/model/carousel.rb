@@ -18,6 +18,7 @@ module Cms
     end
 
     def ratio
+      return 0 unless image.attached?
       width = image.blob.metadata['width']
       height = image.blob.metadata['height']
       if width && height

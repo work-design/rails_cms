@@ -1,4 +1,4 @@
-<div data-controller="player" class="weui-panel is-box mt-3">
+<div data-controller="player" class="box is-padding-less mx-3 mt-3">
   <%= image_tag cover_url, data: { action: 'click->player#play' } %>
   <%= audio_tag media_url, data: { player_target: 'media' } %>
 </div>
