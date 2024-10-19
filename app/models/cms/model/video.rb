@@ -12,11 +12,11 @@ module Cms
       attribute :comments_count, :integer, default: 0
       attribute :water_mark_job, :string
 
-      enum state: {
+      enum :state, {
         draft: 'draft',
         verified: 'verified',
         rejected: 'rejected'
-      }, _default: 'draft'
+      }, default: 'draft'
 
       belongs_to :author, class_name: 'Auth::User', optional: true
       belongs_to :organ, class_name: 'Org::Organ', optional: true
