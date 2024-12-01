@@ -1,4 +1,4 @@
-<figure data-controller="player" class="box is-padding-less mx-3 mt-3">
+<figure data-controller="player" class="box is-padding-less mt-3">
   <%= audio_tag media_url, data: { player_target: 'media' } %>
   <div class="image has-box-square has-block-centered is-cover" style="background-image: url(<%= image_path('player_bg.jpg') %>)">
     <%= image_tag cover_url, data: { player_target: 'cover' }, class: 'image is-rounded is-128x128 as-centered has-animate-anticlockwise' %>
